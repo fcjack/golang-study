@@ -28,3 +28,4 @@ jobs:
         with:
           files: |
             *.xml
+          comment_mode: "create new"
