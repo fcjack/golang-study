@@ -19,8 +19,6 @@ jobs:
         with:
           gotestsum_version: 1.7.0
 
-    -   run: echo "GITHUB_SHA_LATEST=$(/usr/bin/git log -1 --format='%H')" >> $GITHUB_ENV
-
       - name: Interact with gotestsum
         run: make test
 
@@ -34,4 +32,3 @@ jobs:
           deduplicate_classes_by_file_name: true
           report_individual_runs: true
           check_run_annotations: all tests
-          commit: ${{env.GITHUB_SHA_LATEST}}
