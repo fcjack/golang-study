@@ -47,4 +47,8 @@ jobs:
           path: coverage.xml
           repo_token: ${{ secrets.REPO_TOKEN }}
           minimum_coverage: 50
+          show_line: true
+          fail_below_threshold: true
+          show_branch: true
+          show_class_names: true
 
