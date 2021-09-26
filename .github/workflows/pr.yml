@@ -27,5 +27,8 @@ jobs:
         if: always()
         with:
           files: |
-            *.xml
-          comment_mode: "create new"
+            *-tests.xml
+          comment_mode: create new
+          deduplicate_classes_by_file_name: true
+          report_individual_runs: true
+          check_run_annotations: all tests
