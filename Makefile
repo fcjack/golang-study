@@ -1,8 +1,8 @@
-build:
-	go build .
+setup:
+	go get github.com/axw/gocov/gocov
+	go get github.com/AlekSi/gocov-xml
 
 test:
-	mkdir -p test-results
-	gotestsum --junitfile test-results/unit-tests.xml --format standard-verbose -- -coverprofile=test-results/coverage.out -covermode=count  ./...
+	gotestsum --junitfile unit-tests.xml --format standard-verbose -- -coverprofile=coverage.out -covermode=count  ./...
 
 .PHONY: build test

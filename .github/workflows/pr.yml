@@ -18,6 +18,9 @@ jobs:
           stable: false
           go-version: '1.16'
 
+      - name: Setup dependencies
+        run: make setup
+
       - uses: autero1/action-gotestsum@v1.0.0
         with:
           gotestsum_version: 1.7.0
@@ -36,9 +39,16 @@ jobs:
           report_individual_runs: true
           check_run_annotations: all tests, skipped tests
 
-      - name: publish code cov
-        uses: actions/upload-artifact@v2
+      - name: Convert to Cobertura Format
+        run: gocov convert coverage.out | gocov-xml > coverage.xml
+
+      - uses: 5monkeys/cobertura-action@master
         with:
-          name: code covarege report
-          path: coverage.out
+          path: coverage.xml
+          repo_token: ${{ secrets.REPO_TOKEN }}
+          minimum_coverage: 50
+          show_line: true
+          fail_below_threshold: true
+          show_branch: true
+          show_class_names: true
 
