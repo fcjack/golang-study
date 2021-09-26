@@ -31,3 +31,5 @@ jobs:
           comment_mode: create new
           deduplicate_classes_by_file_name: true
           report_individual_runs: true
+          check_run_annotations: all tests
+          commit: ${{env.GITHUB_SHA_LATEST}}
