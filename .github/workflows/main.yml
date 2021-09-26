@@ -1,6 +1,9 @@
 name: Test and coverage
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -32,10 +35,3 @@ jobs:
           deduplicate_classes_by_file_name: true
           report_individual_runs: true
           check_run_annotations: all tests, skipped tests
-
-      - name: publish code cov
-        uses: actions/upload-artifact@v2
-        with:
-          name: code covarege report
-          path: coverage.out
-
