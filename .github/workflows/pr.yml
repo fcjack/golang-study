@@ -19,6 +19,8 @@ jobs:
         with:
           gotestsum_version: 1.7.0
 
+    -   run: echo "GITHUB_SHA_LATEST=$(/usr/bin/git log -1 --format='%H')" >> $GITHUB_ENV
+
       - name: Interact with gotestsum
         run: make test
 
