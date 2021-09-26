@@ -9,7 +9,7 @@ func TestAdd(t *testing.T) {
 }
 
 func TestSubtract(t *testing.T) {
-	if got, want := Subtract(5, 2), 2; got != want {
+	if got, want := Subtract(5, 2), 3; got != want {
 		t.Errorf("subtract method produced wrong result. expected: %d, got: %d", want, got)
 	}
 }
