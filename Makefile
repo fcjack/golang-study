@@ -2,6 +2,7 @@ build:
 	go build .
 
 test:
-	gotestsum --junitfile unit-tests.xml --format standard-verbose -- -coverprofile=coverage.out -covermode=count  ./...
+	mkdir test-results
+	gotestsum --junitfile test-results/unit-tests.xml --format standard-verbose -- -coverprofile=test-results/coverage.out -covermode=count  ./...
 
 .PHONY: build test
